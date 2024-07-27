@@ -6,28 +6,47 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --runss-blue-color: #003F64;
+  --runss-second-blue-color: #1A5A7F;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.banner {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-image: url('/assets/images/banner2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  background-position: center;
+  position: relative;
+}
+
+.banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #003F6450 0% 20%, #003F64 70% 100%);
+  z-index: 10;
+}
+
+@media screen and (max-width: 992px) {
+  .banner {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    min-height: fit-content;
+    padding: 20vh 0;
   }
 }
