@@ -20,7 +20,7 @@ export default function SignInForm() {
 
         if (isValid) {
             // Assuming successful validation, redirect to the desired page
-            router.push('/');
+            router.push('/dashboard/');
         } else {
             // Handle validation errors
             setErrorMessage('Invalid credentials');

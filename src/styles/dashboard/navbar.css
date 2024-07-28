@@ -1,0 +1,28 @@
+details {
+    position: relative;
+}
+
+details[open]>ul {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    min-width: fit-content;
+    z-index: 1;
+}
+
+/* details summary::marker {
+    display: none !important;
+} */
+details>summary {
+    list-style: none;
+    /* Remove default list-style */
+    appearance: none;
+    /* Modern browsers */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    -moz-appearance: none;
+    /* Firefox */
+    cursor: pointer;
+    outline: none;
+    /* Remove focus outline */
+}
