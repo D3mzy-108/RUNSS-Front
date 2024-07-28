@@ -36,9 +36,9 @@ export default function NavBar() {
             />
           </summary>
           <ul className="py-2 px-1 bg-white rounded-lg w-[220px] shadow-lg">
-            {navLinks.map((navLink) => {
+            {navLinks.map((navLink, index) => {
               return (
-                <li>
+                <li key={index}>
                   <a
                     href={navLink[0]}
                     className="w-full p-2 flex gap-3 hover:bg-gray-100"
@@ -80,9 +80,9 @@ export default function NavBar() {
       </div>
       <div className="w-full mt-4 max-lg:hidden">
         <ul className="py-3 px-4 flex flex-col gap-2">
-          {navLinks.map((navLink) => {
+          {navLinks.map((navLink, index) => {
             return (
-              <li>
+              <li key={index}>
                 <a
                   href={navLink[0]}
                   className={`w-full p-3 flex items-center gap-3 rounded-lg text-white ${
