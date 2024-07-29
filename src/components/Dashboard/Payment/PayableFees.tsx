@@ -13,8 +13,6 @@ export default function PayableFees(props: {
     Array<PayableFeesInterface>,
     Dispatch<SetStateAction<Array<PayableFeesInterface>>>
   ];
-  // fees: Array<PayableFeesInterface>;
-  // setFees: Dispatch<SetStateAction<Array<PayableFeesInterface>>>;
   maxPayableAmount: number;
 }) {
   const [payAmount, setPayAmount] = useState(0.0);

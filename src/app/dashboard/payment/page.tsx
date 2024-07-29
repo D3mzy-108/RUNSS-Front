@@ -51,7 +51,6 @@ export default function Payment() {
 
       <PayableFees
         payableFees={[payableFees, setPayableFees]}
-        // setFees={setPayableFees}
         maxPayableAmount={summary.outstandingFees + summary.prevSessionDebt}
       />
     </div>
