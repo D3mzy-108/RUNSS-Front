@@ -49,7 +49,7 @@ export default function UserInfo() {
           <div className="flex-1">
             <span className="text-sm text-gray-500">Outstanding Fees</span>
             <br />
-            <span className="font-medium text-red-500">NGN 0.00</span>
+            <span className="font-medium text-red-600">NGN 0.00</span>
           </div>
         </div>
         <div className="w-full flex gap-3">
@@ -65,7 +65,7 @@ export default function UserInfo() {
           <div className="flex-1">
             <span className="text-sm text-gray-500">Prev Session Debt</span>
             <br />
-            <span className="font-medium text-red-500">NGN 0.00</span>
+            <span className="font-medium text-red-600">NGN 0.00</span>
           </div>
         </div>
       </div>

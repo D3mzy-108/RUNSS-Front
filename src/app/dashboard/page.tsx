@@ -1,7 +1,7 @@
-"use client"
-import { useRouter } from "next/navigation"
+"use client";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
-    const router = useRouter();
-    router.push('/dashboard/payment/');
+  const router = useRouter();
+  router.push("/dashboard/payment/");
 }

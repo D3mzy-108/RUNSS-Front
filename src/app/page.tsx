@@ -2,7 +2,6 @@ import Banner from "@/components/Auth/Banner";
 import SignInForm from "@/components/Auth/SignInForm";
 
 export default function Home() {
-
   return (
     <main className="flex max-lg:flex-col items-center text-black">
       <div className="w-full lg:w-3/5">
