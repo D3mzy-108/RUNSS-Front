@@ -8,7 +8,11 @@ export default function NavBar() {
   const [imageSize, setImageSize] = useState({ width: 250, height: 200 });
   const navLinks = [
     ["/dashboard/payment", "Make Payment", "/assets/icons/payment.svg"],
-    ["/dashboard", "Payment History", "/assets/icons/payments.svg"],
+    [
+      "/dashboard/payment/history",
+      "Payment History",
+      "/assets/icons/payments.svg",
+    ],
   ];
 
   useEffect(() => {
