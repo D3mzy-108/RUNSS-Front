@@ -15,22 +15,32 @@ export default function Payment() {
     {
       feeTitle: "Tuition Fee",
       cost: 25000,
+      isPaid: false,
+      isSelected: false,
     },
     {
       feeTitle: "Registration Fee",
       cost: 2500,
+      isPaid: false,
+      isSelected: false,
     },
     {
       feeTitle: "Medical Fees",
       cost: 15000,
+      isPaid: false,
+      isSelected: false,
     },
     {
       feeTitle: "Accommodation",
       cost: 5000,
+      isPaid: false,
+      isSelected: false,
     },
     {
       feeTitle: "Development Levy",
       cost: 2500,
+      isPaid: false,
+      isSelected: false,
     },
   ]);
 
@@ -40,7 +50,8 @@ export default function Payment() {
       <PaymentSummary summary={summary} />
 
       <PayableFees
-        fees={payableFees}
+        payableFees={[payableFees, setPayableFees]}
+        // setFees={setPayableFees}
         maxPayableAmount={summary.outstandingFees + summary.prevSessionDebt}
       />
     </div>

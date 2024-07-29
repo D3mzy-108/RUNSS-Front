@@ -13,10 +13,13 @@ export default function PaymentSummary(props: {
   const summary = props.summary;
 
   return (
-    <section className="w-full px-4 pt-4 pb-5 bg-gradient-to-tl from-runss-blue-color to-runss-second-blue-color shadow-lg rounded-xl">
-      <legend className="text-md font-[700] text-gray-100 mb-4">
-        Payment Summary
-      </legend>
+    <section className="w-full px-4 pt-4 pb-5 bg-gradient-to-r from-runss-second-blue-color from-60% to-runss-blue-color shadow-lg rounded-xl">
+      <div className="w-full mb-4">
+        <legend className="text-md font-[700] text-gray-100">
+          Payment Summary
+        </legend>
+      </div>
+
       {/* FEES SUMMARY */}
       <div className="w-full flex overflow-auto gap-5 px-3">
         <div className="w-full min-w-fit md:flex-1 text-start">

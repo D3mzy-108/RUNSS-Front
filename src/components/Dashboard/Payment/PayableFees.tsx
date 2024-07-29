@@ -1,16 +1,25 @@
 import { formatNumberWithCommas } from "@/utils/numberFormatter";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction, Dispatch } from "react";
 
 interface PayableFeesInterface {
   feeTitle: string;
   cost: number;
+  isPaid: boolean;
+  isSelected: boolean;
 }
 
 export default function PayableFees(props: {
-  fees: Array<PayableFeesInterface>;
+  payableFees: [
+    Array<PayableFeesInterface>,
+    Dispatch<SetStateAction<Array<PayableFeesInterface>>>
+  ];
+  // fees: Array<PayableFeesInterface>;
+  // setFees: Dispatch<SetStateAction<Array<PayableFeesInterface>>>;
   maxPayableAmount: number;
 }) {
   const [payAmount, setPayAmount] = useState(0.0);
+  const [allSelected, setAllSelected] = useState(false);
+  const [fees, setFees] = props.payableFees;
 
   const handleMakePayment = (event: any) => {
     event.preventDefault();
@@ -22,17 +31,46 @@ export default function PayableFees(props: {
   };
   return (
     <section className="w-full py-6 rounded-xl">
-      <legend className="text-md font-[700] text-runss-blue-color mb-4">
-        Payable Fees
-      </legend>
+      <div className="w-full mb-4 flex gap-2">
+        <div className="flex-1">
+          <legend className="text-md font-[700] text-runss-blue-color">
+            Payable Fees
+          </legend>
+          <span className="text-sm text-gray-500">
+            Select items for immediate payment.
+          </span>
+        </div>
+        <div className="flex gap-[3px] w-fit items-center">
+          <input
+            type="checkbox"
+            name="selectAll"
+            id="selectAll"
+            checked={allSelected}
+            onChange={(e: any) => {
+              setAllSelected(true);
+              var newFees = fees;
+              var totalCost = 0.0;
+              newFees.map((fee) => {
+                fee.isSelected = true;
+                totalCost += fee.cost;
+              });
+              setFees(newFees);
+              setPayAmount(totalCost);
+            }}
+          />
+          <label htmlFor="selectAll" className="text-sm">
+            Select All
+          </label>
+        </div>
+      </div>
       <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-3">
         {/* PAYABLE FEE LIST ITEM */}
-        {props.fees.map((fee, index) => {
+        {fees.map((fee, index) => {
           return (
             <label
               key={index}
               htmlFor={`selectFee${index}`}
-              className="w-full py-3 px-5 rounded-lg border bg-white shadow-lg hover:shadow-md flex max-sm:flex-col items-start sm:items-center gap-3 cursor-pointer duration-200"
+              className="w-full py-3 px-5 rounded-lg border bg-white shadow-lg hover:shadow-md flex max-sm:flex-col items-start gap-3 cursor-pointer duration-200"
             >
               <div className="w-full sm:flex-1">
                 <span className="font-semibold text-[#333]">
@@ -48,12 +86,14 @@ export default function PayableFees(props: {
                 type="checkbox"
                 name={`selectFee${index}`}
                 id={`selectFee${index}`}
+                checked={fee.isSelected}
                 onChange={(e: any) => {
-                  var val: boolean = (e.target as HTMLInputElement).checked;
-                  if (val) {
+                  fee.isSelected = (e.target as HTMLInputElement).checked;
+                  if (fee.isSelected) {
                     setPayAmount(payAmount + fee.cost);
                   } else {
                     setPayAmount(payAmount - fee.cost);
+                    setAllSelected(false);
                   }
                 }}
               />
