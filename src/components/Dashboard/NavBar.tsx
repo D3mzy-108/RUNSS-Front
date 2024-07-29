@@ -35,15 +35,16 @@ export default function NavBar() {
   };
 
   return (
-    <div className="w-full lg:w-[18rem] lg:h-screen lg:overflow-auto bg-white lg:bg-[#00243E] sticky top-0">
+    <div className="w-full lg:w-[18rem] lg:h-screen lg:overflow-auto bg-white shadow-md max-lg:py-1 lg:bg-[#00243E] sticky top-0">
       <div className="w-full flex items-center gap-3 p-3">
         <details className="rounded-lg shadow-md shadow-gray-300 border-none outline-none lg:hidden">
-          <summary className="px-2 aspect-square grid place-items-center">
+          <summary className="bg-runss-blue-color px-2 aspect-square grid place-items-center rounded-lg">
             <Image
               src="/assets/icons/menu.svg"
               alt="Menu Icon"
               width={28}
               height={28}
+              className="invert"
             />
           </summary>
           <ul className="py-2 px-1 bg-white rounded-lg w-[220px] shadow-lg">
@@ -79,7 +80,7 @@ export default function NavBar() {
         <button
           type="button"
           onClick={openUserInfo}
-          className="px-2 aspect-square rounded-lg shadow-md shadow-gray-300 border-none outline-none lg:hidden"
+          className="px-2 aspect-square rounded-lg shadow-md border-none outline-none lg:hidden"
         >
           <Image
             src="/assets/icons/profile.svg"

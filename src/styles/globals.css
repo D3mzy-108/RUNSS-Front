@@ -50,3 +50,8 @@ body {
     padding: 20vh 0;
   }
 }
+
+.height-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}

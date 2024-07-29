@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "@/styles/dashboard/user-info.css";
+import { formatNumberWithCommas } from "@/utils/numberFormatter";
 
 export default function UserInfo() {
   return (
@@ -28,9 +29,9 @@ export default function UserInfo() {
             />
           </div>
           <div className="flex-1">
-            <span className="text-sm text-gray-500">Current Class</span>
+            <span className="text-xs text-gray-500">Current Class</span>
             <br />
-            <span className="font-medium">JSS 1</span>
+            <span className="text-sm font-semibold">JSS 1</span>
           </div>
         </div>
       </div>
@@ -47,9 +48,11 @@ export default function UserInfo() {
             />
           </div>
           <div className="flex-1">
-            <span className="text-sm text-gray-500">Outstanding Fees</span>
+            <span className="text-xs text-gray-500">Outstanding Fees</span>
             <br />
-            <span className="font-medium text-red-600">NGN 0.00</span>
+            <span className="text-sm font-semibold text-red-600">
+              NGN {formatNumberWithCommas(13500)}
+            </span>
           </div>
         </div>
         <div className="w-full flex gap-3">
@@ -63,9 +66,11 @@ export default function UserInfo() {
             />
           </div>
           <div className="flex-1">
-            <span className="text-sm text-gray-500">Prev Session Debt</span>
+            <span className="text-xs text-gray-500">Prev Session Debt</span>
             <br />
-            <span className="font-medium text-red-600">NGN 0.00</span>
+            <span className="text-sm font-semibold text-red-600">
+              NGN {formatNumberWithCommas(6500)}
+            </span>
           </div>
         </div>
       </div>
