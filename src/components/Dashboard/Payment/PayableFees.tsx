@@ -63,7 +63,7 @@ export default function PayableFees(props: {
       </div>
       <form
         onSubmit={handleMakePayment}
-        className="w-fit mt-6 max-w-lg mx-auto"
+        className="w-fit mt-6 max-w-lg mx-auto sticky bottom-4"
       >
         <div className="w-fit flex border rounded-lg overflow-clip shadow-lg">
           <div className="w-fit relative py-3 px-5 bg-white font-semibold text-lg">
